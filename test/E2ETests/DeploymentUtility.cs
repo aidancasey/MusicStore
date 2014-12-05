@@ -97,7 +97,7 @@ namespace E2ETests
             if (!string.IsNullOrWhiteSpace(startParameters.EnvironmentName))
             {
                 //To choose an environment based Startup
-                Environment.SetEnvironmentVariable("KRE_ENV", startParameters.EnvironmentName);
+                Environment.SetEnvironmentVariable("ASPNET_ENV", startParameters.EnvironmentName);
             }
 
             Process hostProcess = null;
@@ -129,7 +129,7 @@ namespace E2ETests
 
             //Restore the KRE_DEFAULT_LIB after starting the host process
             Environment.SetEnvironmentVariable("KRE_DEFAULT_LIB", backupKreDefaultLibPath);
-            Environment.SetEnvironmentVariable("KRE_ENV", string.Empty);
+            Environment.SetEnvironmentVariable("ASPNET_ENV", string.Empty);
             return hostProcess;
         }
 
